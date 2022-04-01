@@ -1,5 +1,6 @@
 package testing;
 import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Calendrier {
@@ -10,12 +11,12 @@ public class Calendrier {
 		liste = new ArrayList<>();
 	}
 	
-	public void ajoutCrenaux(Date dd, Date df){
-		PlageHoraire c = new PlageHoraire(dd, df);
+	public void ajoutCrenaux(LocalDateTime localDateTime, LocalDateTime localDateTime2){
+		PlageHoraire c = new PlageHoraire(localDateTime, localDateTime2);
 		liste.add(c);
 	}
 	
-	public void updateCrenaux(Date dd, Date df, boolean b) throws IllegalArgumentException {
+	public void updateCrenaux(LocalDateTime dd, LocalDateTime df, boolean b) throws IllegalArgumentException {
 		PlageHoraire ph = new PlageHoraire(dd,df);
 		if (liste.contains(ph)) {
 			PlageHoraire calPH = getCreneaux(ph);

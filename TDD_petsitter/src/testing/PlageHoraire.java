@@ -1,18 +1,19 @@
 package testing;
 import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class PlageHoraire {
-		Date dateDebut;
-		Date dateFin;
+		LocalDateTime dateDebut;
+		LocalDateTime dateFin;
 		boolean estReserve;
 		
-		public PlageHoraire(Date dd, Date df) {
+		public PlageHoraire(LocalDateTime dd, LocalDateTime df) {
 			dateDebut = dd;
 			dateFin = df;
 			estReserve = false;
 		}
-		public PlageHoraire(Date dd, Date df,boolean b) {
+		public PlageHoraire(LocalDateTime dd, LocalDateTime df,boolean b) {
 			dateDebut = dd;
 			dateFin = df;
 			estReserve = b;
