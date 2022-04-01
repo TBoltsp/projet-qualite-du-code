@@ -18,26 +18,17 @@ import testing.Race;
 
 class TDD_tests_petsitters {
 
-/*	private Proprietaire P_joe;
-	private Animal A_rex;
-	private Animal A_bob;
-	private Gardien G_helena;
-	private Calendrier calendrier;
-	private LocalDateTime dateDebut;
-	private LocalDateTime dateFin;
-*/
-	
 	@Test
 	void test1() {
-		// La 'Demande de Booking' est refus√©e si le 'Gardien' n'a pas 'chien' dans la liste d'animaux accept√©s.
-		A_rex = new Animal("rex", Race.CHIEN);
+		// La 'Demande de Booking' est refusÈe si le 'Gardien' n'a pas 'chien' dans la liste d'animaux acceptÈs.
+		Animal A_rex = new Animal("rex", Race.CHIEN);
 		
-		P_joe = new Proprietaire("joe");
+		Proprietaire P_joe = new Proprietaire("joe");
 		P_joe.ajoutAnimal(A_rex);
 		
-		dateDebut = LocalDateTime.of(2022, 04, 01, 10, 30, 0);
-		dateFin = LocalDateTime.of(2022, 04, 01, 15, 30, 0);
-		G_helena = new Gardien("helena");
+		LocalDateTime dateDebut = LocalDateTime.of(2022, 04, 01, 10, 30, 0);
+		LocalDateTime dateFin = LocalDateTime.of(2022, 04, 01, 15, 30, 0);
+		Gardien G_helena = new Gardien("helena");
 		G_helena.ajoutRace(Race.CHAT);
 		G_helena.ajoutRace(Race.CHIEN);
 		G_helena.ajoutCreneaux(dateDebut, dateFin);
@@ -47,16 +38,16 @@ class TDD_tests_petsitters {
 	
 	@Test
 	void test2() {
-		//La 'Demande de Booking' est accept√©e si le 'Gardien' a le 'chien' dans la liste d'animaux accept√©s.
-		//A ce moment l√†, le 'Calendrier' du 'Gardien' est modifi√©, et la date (plage de date, d√©but et fin) est marqu√©e comme occupp√©e.
-		A_rex = new Animal("rex", Race.CHIEN);
+		//La 'Demande de Booking' est acceptÈe si le 'Gardien' a le 'chien' dans la liste d'animaux acceptÈs.
+		//A ce moment l‡†, le 'Calendrier' du 'Gardien' est modifiÈ, et la date (plage de date, dÈbut et fin) est marquÈe comme occuppÈe.
+		Animal A_rex = new Animal("rex", Race.CHIEN);
 		
-		P_joe = new Proprietaire("joe");
+		Proprietaire P_joe = new Proprietaire("joe");
 		P_joe.ajoutAnimal(A_rex);
 		
-		dateDebut = LocalDateTime.of(2022, 04, 01, 10, 30, 0);
-		dateFin = LocalDateTime.of(2022, 04, 01, 15, 30, 0);
-		G_helena = new Gardien("helena");
+		LocalDateTime dateDebut = LocalDateTime.of(2022, 04, 01, 10, 30, 0);
+		LocalDateTime dateFin = LocalDateTime.of(2022, 04, 01, 15, 30, 0);
+		Gardien G_helena = new Gardien("helena");
 		G_helena.ajoutRace(Race.CHAT);
 		G_helena.ajoutRace(Race.CHIEN);
 		G_helena.ajoutCreneaux(dateDebut, dateFin);
@@ -66,15 +57,15 @@ class TDD_tests_petsitters {
 	
 	@Test
 	void test3() {
-		//La 'Demande de Booking' est refus√©e si le 'Gardien' n'est pas disponible √† la date demand√©e en fonction de son 'Calendrier'
-		A_rex = new Animal("rex", Race.CHIEN);
+		//La 'Demande de Booking' est refusÈe si le 'Gardien' n'est pas disponible ‡† la date demandÈe en fonction de son 'Calendrier'
+		Animal A_rex = new Animal("rex", Race.CHIEN);
 		
-		P_joe = new Proprietaire("joe");
+		Proprietaire P_joe = new Proprietaire("joe");
 		P_joe.ajoutAnimal(A_rex);
 		
-		dateDebut = LocalDateTime.of(2022, 04, 01, 10, 30, 0);
-		dateFin = LocalDateTime.of(2022, 04, 01, 15, 30, 0);
-		G_helena = new Gardien("helena");
+		LocalDateTime dateDebut = LocalDateTime.of(2022, 04, 01, 10, 30, 0);
+		LocalDateTime dateFin = LocalDateTime.of(2022, 04, 01, 15, 30, 0);
+		Gardien G_helena = new Gardien("helena");
 		G_helena.ajoutRace(Race.CHAT);
 		G_helena.ajoutRace(Race.CHIEN);
 		G_helena.ajoutCreneaux(dateDebut, dateFin);
