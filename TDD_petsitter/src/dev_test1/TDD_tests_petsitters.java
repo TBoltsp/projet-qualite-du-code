@@ -2,6 +2,8 @@ package dev_test1;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.LocalDateTime;
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class TDD_tests_petsitters {
@@ -92,13 +94,71 @@ class TDD_tests_petsitters {
 		assertFalse(ph1.equals(ph2));
 	}
 	
-	@Test (expected = IllegalArgumentException.class)
+	@Test
 	void testPlageHoraire3() {
 		// trows IllegalArgumentException quand dateDebut superieur a dateFin
 		LocalDateTime dateDebut = LocalDateTime.of(2022, 04, 01, 10, 30, 0);
 		LocalDateTime dateFin = LocalDateTime.of(2022, 04, 01, 19, 30, 0);
 		
-		new PlageHoraire(dateDebut, dateFin);
+		Assertions.assertThrows(IllegalArgumentException.class, () -> {
+			PlageHoraire ph1 = new PlageHoraire(dateDebut, dateFin);
+	  });
+	}
+	
+	@Test
+	void testPlageHoraireCollisionDebut() {
+		// collision au debut
+		LocalDateTime dateDebut = LocalDateTime.of(2022, 04, 01, 10, 30, 0);
+		LocalDateTime dateFin = LocalDateTime.of(2022, 04, 01, 15, 30, 0);
+		PlageHoraire ph1 = new PlageHoraire(dateDebut, dateFin);
+		
+		dateDebut = LocalDateTime.of(2022, 04, 01, 19, 30, 0);
+		dateFin = LocalDateTime.of(2022, 04, 01, 11, 30, 0);
+		PlageHoraire ph2 = new PlageHoraire(dateDebut, dateFin);
+		
+		assertTrue(ph1.collision(ph2));
+	}
+	
+	@Test
+	void testPlageHoraireCollisionFin() {
+		// collision au fin
+		LocalDateTime dateDebut = LocalDateTime.of(2022, 04, 01, 10, 30, 0);
+		LocalDateTime dateFin = LocalDateTime.of(2022, 04, 01, 15, 30, 0);
+		PlageHoraire ph1 = new PlageHoraire(dateDebut, dateFin);
+		
+		dateDebut = LocalDateTime.of(2022, 04, 01, 12, 30, 0);
+		dateFin = LocalDateTime.of(2022, 04, 01, 17, 30, 0);
+		PlageHoraire ph2 = new PlageHoraire(dateDebut, dateFin);
+		
+		assertTrue(ph1.collision(ph2));
+	}
+	
+	@Test
+	void testPlageHoraireCollisionRecouvrement() {
+		// collision par recouvrement de l'horaire
+		LocalDateTime dateDebut = LocalDateTime.of(2022, 04, 01, 10, 30, 0);
+		LocalDateTime dateFin = LocalDateTime.of(2022, 04, 01, 15, 30, 0);
+		PlageHoraire ph1 = new PlageHoraire(dateDebut, dateFin);
+		
+		dateDebut = LocalDateTime.of(2022, 04, 01, 8, 30, 0);
+		dateFin = LocalDateTime.of(2022, 04, 01, 17, 30, 0);
+		PlageHoraire ph2 = new PlageHoraire(dateDebut, dateFin);
+		
+		assertTrue(ph1.collision(ph2));
+	}
+	
+	@Test
+	void testPlageHoraireCollisionNegatif() {
+		// non collision 
+		LocalDateTime dateDebut = LocalDateTime.of(2022, 04, 01, 10, 30, 0);
+		LocalDateTime dateFin = LocalDateTime.of(2022, 04, 01, 15, 30, 0);
+		PlageHoraire ph1 = new PlageHoraire(dateDebut, dateFin);
+		
+		dateDebut = LocalDateTime.of(2021, 04, 01, 8, 30, 0);
+		dateFin = LocalDateTime.of(2021, 04, 01, 17, 30, 0);
+		PlageHoraire ph2 = new PlageHoraire(dateDebut, dateFin);
+		
+		assertFalse(ph1.collision(ph2));
 	}
 
 }

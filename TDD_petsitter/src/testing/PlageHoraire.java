@@ -2,6 +2,7 @@ package testing;
 import java.sql.Date;
 import java.time.LocalDateTime;
 import java.util.Objects;
+import java.util.function.BooleanSupplier;
 
 public class PlageHoraire {
 		LocalDateTime dateDebut;
@@ -25,6 +26,10 @@ public class PlageHoraire {
 		
 		public boolean getEstReserve() {
 			return estReserve;
+		}
+		public BooleanSupplier collision(PlageHoraire ph2) {
+			// TODO Auto-generated method stub
+			return null;
 		}
 		
 		
