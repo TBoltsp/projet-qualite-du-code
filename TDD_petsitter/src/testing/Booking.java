@@ -1,9 +1,12 @@
 package testing;
 
+import java.time.LocalDateTime;
+import java.util.function.BooleanSupplier;
+
 public class Booking {
 
 	
-	public static boolean demandeBooking(Proprietaire p, Gardien g, PlageHoraire ph) {
+	public static boolean demandeBooking(Proprietaire p, Gardien g, LocalDateTime dd, LocalDateTime df) {
 	
 		//check la liste d'animaux
 		//check les creneaux
@@ -11,9 +14,11 @@ public class Booking {
 		//		renvoie true dans ce cas
 		//		sinon renvoie false
 		
-		if () {
+		if (true) {
 			return true;
 		}
 		return false;
 	}
+
+
 }
