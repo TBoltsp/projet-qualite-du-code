@@ -14,27 +14,25 @@ public class Calendrier {
 		liste.add(c);
 	}
 	
-	public void updateCrenaux(Date dd, Date df, boolean b) {
-		
+	public void updateCrenaux(Date dd, Date df, boolean b) throws IllegalArgumentException {
+		PlageHoraire ph = new PlageHoraire(dd,df);
+		if (liste.contains(ph)) {
+			PlageHoraire calPH = getCreneaux(ph);
+			if (calPH.getEstReserve()) {
+				throw new IllegalArgumentException("Creneaux déja réservé");
+			}
+			calPH.updatePlage(true);
+		}
+		throw new IllegalArgumentException("Creneaux indisponible");
+	}
+
+	private PlageHoraire getCreneaux(PlageHoraire ph) {
+		return liste.get(liste.indexOf(ph));
 	}
 	
 	
 	
 	
-	class PlageHoraire {
-		Date dateDebut;
-		Date dateFin;
-		boolean estReserve;
-		
-		public PlageHoraire(Date dd, Date df) {
-			dateDebut = dd;
-			dateFin = df;
-			estReserve = false;
-		}
-		
-		public void updatePlage(boolean b) {
-			estReserve = b;
-		}
-	}
+	
 	
 }

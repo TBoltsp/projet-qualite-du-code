@@ -2,11 +2,11 @@
 public class Booking {
 
 	
-	public static boolean demandeBooking(Proprietaire p, Gardien g) {
-		
+	public static boolean demandeBooking(Proprietaire p, Gardien g, PlageHoraire ph) {
+	
 		p.getListeDAnimaux();
 		
-		if (.equals()) {
+		if (null) {
 			return true;
 		}
 		return false;
