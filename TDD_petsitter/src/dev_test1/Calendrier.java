@@ -3,8 +3,6 @@ package dev_test1;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-import testing.PlageHoraire;
-
 public class Calendrier {
 	
 ArrayList<PlageHoraire> liste;

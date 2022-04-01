@@ -1,20 +1,8 @@
 package dev_test1;
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.sql.Date;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
-import testing.Animal;
-import testing.Booking;
-import testing.Calendrier;
-import testing.Gardien;
-import testing.PlageHoraire;
-import testing.Proprietaire;
-import testing.Race;
 
 class TDD_tests_petsitters {
 
