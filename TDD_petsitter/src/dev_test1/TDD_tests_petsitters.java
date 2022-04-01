@@ -2,10 +2,19 @@ package dev_test1;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
+import testing.Animal;
+import testing.Booking;
+import testing.Calendrier;
+import testing.Gardien;
+import testing.PlageHoraire;
+import testing.Proprietaire;
+import testing.Race;
 
 class TDD_tests_petsitters {
 
@@ -25,9 +34,11 @@ class TDD_tests_petsitters {
 		ArrayList<Race> listeDeRace = new ArrayList<>();
 		listeDeRace.add(Race.CHAT);
 		calendrier = new Calendrier();
-		calendrier.ajoutCrenaux(Date.valueOf("2022-04-01"), Date.valueOf("2022-04-02"));
+		LocalDateTime dateDebut = LocalDateTime.of(2022, 04, 01, 10, 30, 0);
+		LocalDateTime dateFin = LocalDateTime.of(2022, 04, 01, 15, 30, 0);
+		calendrier.ajoutCrenaux(dateDebut, dateFin);
 		G_helena = new Gardien("helena", calendrier, listeDeRace);
-		PlageHoraire plageReservation = new PlageHoraire(Date.valueOf("2022-04-01"), Date.valueOf("2022-04-02"));
+		PlageHoraire plageReservation = new PlageHoraire(dateDebut, dateFin);
 		
 		assertFalse(Booking.demandeBooking(P_joe, G_helena, plageReservation));
 	}
