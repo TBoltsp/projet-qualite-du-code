@@ -1,3 +1,4 @@
+package testing;
 import java.util.ArrayList;
 
 public class Proprietaire {
