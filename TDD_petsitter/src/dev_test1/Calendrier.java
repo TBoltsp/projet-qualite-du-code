@@ -5,8 +5,12 @@ import java.util.ArrayList;
 
 public class Calendrier {
 	
-ArrayList<PlageHoraire> liste;
+	ArrayList<PlageHoraire> liste;
 	
+	public ArrayList<PlageHoraire> getListe() {
+		return liste;
+	}
+
 	public Calendrier() {
 		liste = new ArrayList<>();
 	}
@@ -15,6 +19,5 @@ ArrayList<PlageHoraire> liste;
 		PlageHoraire crenaux = new PlageHoraire(dateDebut, dateFin);
 		liste.add(crenaux);
 	}
-
 
 }

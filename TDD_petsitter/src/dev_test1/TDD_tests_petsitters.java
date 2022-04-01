@@ -4,13 +4,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.time.LocalDateTime;
 import org.junit.jupiter.api.Test;
 
-import testing.Animal;
-import testing.Booking;
-import testing.Gardien;
-import testing.PlageHoraire;
-import testing.Proprietaire;
-import testing.Race;
-
 class TDD_tests_petsitters {
 
 	@Test
@@ -27,8 +20,9 @@ class TDD_tests_petsitters {
 		G_helena.ajoutRace(Race.CHAT);
 		G_helena.ajoutRace(Race.CHIEN);
 		G_helena.ajoutCreneaux(dateDebut, dateFin);
+		PlageHoraire crenaux = new PlageHoraire(dateDebut, dateFin);
 		
-		assertFalse(Booking.demandeBooking(P_joe, G_helena, dateDebut, dateFin));
+		assertFalse(Booking.demandeBooking(P_joe, G_helena, crenaux));
 	}
 	
 	@Test
@@ -46,8 +40,9 @@ class TDD_tests_petsitters {
 		G_helena.ajoutRace(Race.CHAT);
 		G_helena.ajoutRace(Race.CHIEN);
 		G_helena.ajoutCreneaux(dateDebut, dateFin);
+		PlageHoraire crenaux = new PlageHoraire(dateDebut, dateFin);
 		
-		assertFalse(Booking.demandeBooking(P_joe, G_helena, dateDebut, dateFin));
+		assertFalse(Booking.demandeBooking(P_joe, G_helena, crenaux));
 	}
 	
 	@Test
@@ -67,7 +62,9 @@ class TDD_tests_petsitters {
 		
 		dateDebut = LocalDateTime.of(2022, 04, 01, 8, 0, 0);
 		dateFin = LocalDateTime.of(2022, 04, 01, 9, 30, 0);
-		assertFalse(Booking.demandeBooking(P_joe, G_helena, dateDebut, dateFin));
+		PlageHoraire crenaux = new PlageHoraire(dateDebut, dateFin);
+		
+		assertFalse(Booking.demandeBooking(P_joe, G_helena, crenaux));
 	}
 	
 	@Test

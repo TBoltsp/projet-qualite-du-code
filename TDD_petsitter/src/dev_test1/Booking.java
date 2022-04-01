@@ -1,12 +1,8 @@
 package dev_test1;
 
-import java.time.LocalDateTime;
-import java.util.function.BooleanSupplier;
-
 public class Booking {
 
-	public static boolean demandeBooking(Proprietaire proprietaire, Gardien gardien, LocalDateTime dateDebut,
-			LocalDateTime dateFin) {
+	public static boolean demandeBooking(Proprietaire proprietaire, Gardien gardien, PlageHoraire crenaux) {
 		
 		boolean result = true;
 		
@@ -24,10 +20,24 @@ public class Booking {
 				break;
 			}
 		}
-				//check les creneaux
-				//update le creneaux si le creaneaux est disponible et libre
-				//		renvoie true dans ce cas
-				//		sinon renvoie false
+		
+		//check les creneaux
+		if (result) {
+			boolean bonCrenaux = false;
+			for(int i = 0; i < gardien.getCalendrier().getListe().size(); i++) {
+				if(gardien.getCalendrier().getListe().get(i).equals(crenaux)) {
+					//Si le crenaux n'est pas réservé
+					if(!gardien.getCalendrier().getListe().get(i).isEstReserve()) {
+						gardien.getCalendrier().getListe().get(i).setEstReserve(true);
+						bonCrenaux = true;
+						break;
+					}
+				}
+			}
+			if (!bonCrenaux) {
+				result = false;
+			}
+		}
 		
 		return result;
 	}
