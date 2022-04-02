@@ -1,4 +1,4 @@
-package dev_test2;
+package dev_TDD;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.sql.Date;
@@ -24,7 +24,6 @@ class TDD_tests_petsitters {
 		LocalDateTime dateFin = LocalDateTime.of(2022, 04, 01, 15, 30, 0);
 		Gardien G_helena = new Gardien("helena");
 		G_helena.ajoutRace(Race.CHAT);
-		G_helena.ajoutRace(Race.CHIEN);
 		G_helena.ajoutCreneaux(dateDebut, dateFin);
 		
 		assertFalse(Booking.demandeBooking(P_joe, G_helena, dateDebut, dateFin));
@@ -46,7 +45,10 @@ class TDD_tests_petsitters {
 		G_helena.ajoutRace(Race.CHIEN);
 		G_helena.ajoutCreneaux(dateDebut, dateFin);
 		
-		assertFalse(Booking.demandeBooking(P_joe, G_helena, dateDebut, dateFin));
+		assertFalse(G_helena.getCalendrier().getListeDePlageHoraire().get(0).getEstReserve());
+		assertTrue(Booking.demandeBooking(P_joe, G_helena, dateDebut, dateFin));
+		assertTrue(G_helena.getCalendrier().getListeDePlageHoraire().get(0).getEstReserve());
+
 	}
 	
 	@Test

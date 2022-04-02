@@ -1,4 +1,4 @@
-package dev_test2;
+package dev_TDD;
 
 public enum Race {
 	CHIEN, CHAT
