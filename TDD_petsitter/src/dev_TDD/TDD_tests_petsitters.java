@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 class TDD_tests_petsitters {
 	
 	@Test
-	void test1() {
+	void testBooking1() {
 		// La 'Demande de Booking' est refusee si le 'Gardien' n'a pas 'chien' dans la liste d'animaux acceptes.
 		Animal A_rex = new Animal("rex", Race.CHIEN);
 		
@@ -30,7 +30,7 @@ class TDD_tests_petsitters {
 	}
 	
 	@Test
-	void test2() {
+	void testBooking2() {
 		//La 'Demande de Booking' est acceptee si le 'Gardien' a le 'chien' dans la liste d'animaux acceptes.
 		//A ce moment la, le 'Calendrier' du 'Gardien' est modifie, et la date (plage de date, debut et fin) est marquee comme occuppee.
 		Animal A_rex = new Animal("rex", Race.CHIEN);
@@ -52,7 +52,7 @@ class TDD_tests_petsitters {
 	}
 	
 	@Test
-	void test3() {
+	void testBooking3() {
 		//La 'Demande de Booking' est refuse si le 'Gardien' n'est pas disponible a la date demandee en fonction de son 'Calendrier'
 		Animal A_rex = new Animal("rex", Race.CHIEN);
 		
@@ -68,6 +68,26 @@ class TDD_tests_petsitters {
 		
 		dateDebut = LocalDateTime.of(2022, 04, 01, 8, 0, 0);
 		dateFin = LocalDateTime.of(2022, 04, 01, 9, 30, 0);
+		assertFalse(Booking.demandeBooking(P_joe, G_helena, dateDebut, dateFin));
+	}
+	
+	@Test
+	void testBooking3QuestionFinCollision() {
+		//La 'Demande de Booking' est refuse si le 'Gardien' n'est pas disponible a la date demandee en fonction de son 'Calendrier'
+		Animal A_rex = new Animal("rex", Race.CHIEN);
+		
+		Proprietaire P_joe = new Proprietaire("joe");
+		P_joe.ajoutAnimal(A_rex);
+		
+		LocalDateTime dateDebut = LocalDateTime.of(2022, 04, 01, 10, 30, 0);
+		LocalDateTime dateFin = LocalDateTime.of(2022, 04, 01, 15, 30, 0);
+		Gardien G_helena = new Gardien("helena");
+		G_helena.ajoutRace(Race.CHAT);
+		G_helena.ajoutRace(Race.CHIEN);
+		G_helena.ajoutCreneaux(dateDebut, dateFin);
+		
+		dateDebut = LocalDateTime.of(2022, 04, 01, 8, 0, 0);
+		dateFin = LocalDateTime.of(2022, 04, 01, 11, 15, 0);
 		assertFalse(Booking.demandeBooking(P_joe, G_helena, dateDebut, dateFin));
 	}
 	
