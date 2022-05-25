@@ -1,4 +1,4 @@
-package dev_TDD;
+package foo.petNanny.domain;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

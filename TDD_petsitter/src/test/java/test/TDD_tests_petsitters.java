@@ -1,4 +1,4 @@
-package dev_TDD;
+package test;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.sql.Date;
@@ -9,6 +9,13 @@ import java.util.ArrayList;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
+import foo.petNanny.domain.Animal;
+import foo.petNanny.domain.Proprietaire;
+import foo.petNanny.domain.Gardien;
+import foo.petNanny.domain.Race;
+import foo.petNanny.domain.Booking;
+import foo.petNanny.domain.PlageHoraire;
 
 class TDD_tests_petsitters {
 	
