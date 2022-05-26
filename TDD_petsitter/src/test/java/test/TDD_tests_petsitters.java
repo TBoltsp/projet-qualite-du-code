@@ -1,4 +1,9 @@
+<<<<<<< Updated upstream:TDD_petsitter/src/test/java/test/TDD_tests_petsitters.java
 package test;
+=======
+package io.cucumber.skeleton;
+
+>>>>>>> Stashed changes:src/test/java/io/cucumber/skeleton/TDD_tests_petsitters.java
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.sql.Date;
@@ -6,6 +11,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
+import foo.petNanny.domain.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
